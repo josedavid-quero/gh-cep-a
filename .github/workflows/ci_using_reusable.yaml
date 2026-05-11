@@ -7,7 +7,7 @@ jobs:
   build:
     uses: ./.github/workflows/reusable-node-build.yaml
     with:
-      node-version: "18"
+      node-version: 18
       working-directory: ./hangman-api
 
   test:
@@ -15,10 +15,10 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "18"
 
