@@ -25,4 +25,4 @@ jobs:
         working-directory: ./hangman-api
         run: |
           npm ci
-          npm run test    
+          npm run test
