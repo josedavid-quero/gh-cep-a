@@ -8,7 +8,7 @@ jobs:
     uses: ./.github/workflows/reusable-node-build.yaml
     with:
       node-version: 18
-      working-directory: hangman-api
+      working-directory: ./hangman-api
 
   test:
     runs-on: ubuntu-latest
