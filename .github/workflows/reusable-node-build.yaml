@@ -1,11 +1,11 @@
 name: Reusable Node Build
 
-on: 
+on:
   workflow_call:
     inputs:
       node-version:
         required: true
-        type: number
+        type: string
       working-directory:
         required: true
         type: string
@@ -13,18 +13,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v6
-    - name: Setup Node.js version
-      uses: actions/setup-node@v6
-      with:
-        node-version: ${{ inputs.node-version }}
-    - name: Build
-      working-directory: ${{ input.working-directory }}
-      run: |
-        npm ci
-        npm run uld --if-present
-
-    
+      - name: Build
+        working-directory: ${{ inputs.working-directory }}
+        run: |
+          npm ci
+          npm run build --if-present
