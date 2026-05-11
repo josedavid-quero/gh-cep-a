@@ -5,7 +5,7 @@ on:
     inputs:
       node-version:
         required: true
-        type: number
+        type: string
       working-directory:
         required: true
         type: string
