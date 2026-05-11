@@ -40,4 +40,12 @@ jobs:
         working-directory: ./hangman-api
         run: |
           npm ci
-          npm run test  
+          npm run test
+
+  bye:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: bye
+        run: echo 'bye'
