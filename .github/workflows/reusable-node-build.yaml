@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
       - name: Build
-        working-directory: ${{ input.working-directory }}
+        working-directory: ${{ inputs.working-directory }}
         run: |
           npm ci
           npm run uld --if-present
